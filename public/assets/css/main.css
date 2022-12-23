@@ -1,0 +1,26 @@
+/* REUSED STYLE */
+
+.section {
+    padding-block: 60px;
+}
+
+.container {
+    padding-inline: 60px;
+}
+
+/* HEADER */
+
+header nav {
+    border-radius: 10px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-list {
+    flex-basis: 0;
+    flex-grow: 0;
+}
