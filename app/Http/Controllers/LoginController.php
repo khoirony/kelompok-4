@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Helpers\HttpClient;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -15,11 +16,6 @@ class LoginController extends Controller
 
     public function loginprocess(Request $request){
         $login = 0;
-        $credentials = $request->validate([
-            'email' => 'required',
-            'password' => 'required'
-        ]);
-
         $responseLogin = HttpClient::fetch(
             "GET",
             "http://localhost:8001/api/user/list"
@@ -27,13 +23,14 @@ class LoginController extends Controller
         $data = $responseLogin["data"];
 
         foreach($data as $user){
-            if (strcmp($request->input('email'), $user['email']) == 0){
+            // cek email
+            
+            if (strcmp($request->input('email'), $user['email']) == 0 && Hash::check($request->input('password'), $user['password']) == true){
                 // insert data user to session
                 $request->session()->put($user);
                 $login = 1;
             }
         }
-
 
         if($login != 0){
             if($user['role'] == 1){
