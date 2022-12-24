@@ -1,3 +1,37 @@
+/* RESET STYLE */
+
+input,
+textarea {
+    padding: 15px !important;
+    border: 2px solid #ccc !important;
+    border-radius: 6px !important;
+}
+
+.form-control {
+    background-image: none !important;
+}
+
+.form-check-input {
+    position: unset !important;
+    margin-left: unset;
+}
+
+.form-check {
+    position: relative;
+    display: flex !important;
+    padding-left: 1.25rem;
+    align-items: center !important;
+    gap: 10px;
+}
+
+.form-check label {
+    margin-top: 8px;
+}
+
+input[type="radio"] {
+    border-radius: 100% !important;
+}
+
 /* REUSED STYLE */
 
 .section {
@@ -23,4 +57,38 @@ header nav {
 .nav-list {
     flex-basis: 0;
     flex-grow: 0;
+}
+
+/* Custom CSS Element */
+details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
+details[open] {
+    padding: 1rem;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 1rem;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 15px;
 }

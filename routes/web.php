@@ -26,3 +26,29 @@ Route::get("/register", function () {
 Route::get("/login", function () {
     return view("auth.login");
 });
+
+
+
+
+
+
+
+
+
+// Routes Crud Sample
+
+Route::get("/crud", function () { // contoh crud sample untuk halaman index
+    return view("crud.index");
+})->name("crud.index");
+
+Route::get("/crud/create", function () { // contoh crud sample untuk halaman create
+    return view("crud.create");
+})->name("crud.create");
+
+Route::get("/crud/edit", function () { // contoh crud sample untuk halaman edit
+    return view("crud.edit");
+})->name("crud.edit");
+
+Route::get("/crud/show", function () { // contoh crud sample untuk halaman show
+    return view("crud.show");
+})->name("crud.show");
