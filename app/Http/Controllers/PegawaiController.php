@@ -18,20 +18,20 @@ class PegawaiController extends Controller
         ]);
     }
 
-    public function aduanmasuk()
-    {
-        $aduanmasuk  = Aspirasi::where('status', 0)->orderBy('created_at', 'desc')->get();
-        return view('dashboard.pegawai.aduanmasuk', [
-            'title' => 'Pengaduan Masuk',
-            'aduanmasuk' => $aduanmasuk
-        ]);
-    }
+    // public function aduanmasuk()
+    // {
+    //     $aduanmasuk  = Aspirasi::where('status', 0)->orderBy('created_at', 'desc')->get();
+    //     return view('dashboard.pegawai.aduanmasuk', [
+    //         'title' => 'Pengaduan Masuk',
+    //         'aduanmasuk' => $aduanmasuk
+    //     ]);
+    // }
 
     public function kelolatanggapan($id)
     {
         $aduan  = Aspirasi::where('id', $id)->first();
         return view('dashboard.pegawai.kelolatanggapan', [
-            'title' => 'Kelola Aduan',
+            'title' => 'Kelola Aspirasi',
             'aduan' => $aduan,
             'id' => $id
         ]);

@@ -13,20 +13,10 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $jmlpegawai   = User::where('role', 1)->count();
-        $jmlmasyarakat = User::where('role', 2)->count();
-        $aduanmasuk  = Aspirasi::where('status', 0)->count();
-        $aduandiproses  = Aspirasi::where('status', 1)->count();
-        $aduanselesai  = Aspirasi::where('status', 2)->count();
-        $aduanditolak  = Aspirasi::where('status', 9)->count();
+        $aduanmasuk  = Aspirasi::orderBy('created_at', 'desc')->get();
         return view('dashboard.admin.index', [
-            'title' => 'Dashboard',
-            'jmlpegawai' => $jmlpegawai,
-            'jmlmasyarakat' => $jmlmasyarakat,
-            'aduanmasuk' => $aduanmasuk,
-            'aduandiproses' => $aduandiproses,
-            'aduanselesai' => $aduanselesai,
-            'aduanditolak' => $aduanditolak
+            'title' => 'Aspirasi Masuk',
+            'aduanmasuk' => $aduanmasuk
         ]);
     }
 

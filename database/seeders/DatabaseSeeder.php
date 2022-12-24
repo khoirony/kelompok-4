@@ -42,14 +42,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Aspirasi::create([
-            'id_user' => '2',
+            'id_user' => '3',
             'isi_aspirasi' => 'Turunkan Harga Chip',
             'status' => '0', //belumdibaca
             'gambar' => 'gambar1.jpg',
         ]);
 
         Aspirasi::create([
-            'id_user' => '2',
+            'id_user' => '3',
             'isi_aspirasi' => 'Turunkan Harga Chip',
             'status' => '1', //sudah dibaca
             'gambar' => 'gambar2.jpg',

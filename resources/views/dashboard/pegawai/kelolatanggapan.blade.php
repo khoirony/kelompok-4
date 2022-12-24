@@ -40,22 +40,22 @@
                 <div class="col-12 mt-5">
                     <div class="form-floating">
                         <input class="form-control bg-light" type="text" value="{{ $aduan->user->nama }}" readonly>
-                        <label>Aduan Dari</label>
+                        <label>Aspirasi Dari</label>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-floating">
-                        <textarea class="form-control bg-light" style="height: 100px;" readonly>{{ $aduan->isi_aspirasi }}</textarea>
-                        <label for="floatingTextarea">Isi Aduan</label>
+                        <textarea class="form-control bg-light" style="height: 300px;" readonly>{{ $aduan->isi_aspirasi }}</textarea>
+                        <label for="floatingTextarea">Isi Aspirasi</label>
                     </div>
                 </div>
 
                 <div class="col-12">
-                    <img src="https://s.kaskus.id/images/2012/12/19/4622021_20121219012816.jpg" alt="GambarAspirasi" height="300" style="width: 100%;object-fit: cover; background-attachment: fixed;">
+                    <img src="https://s.kaskus.id/images/2012/12/19/4622021_20121219012816.jpg" alt="GambarAspirasi" height="500" style="width: 100%;object-fit: cover; background-attachment: fixed;">
                 </div>
 
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="{{ url("/admin") }}" class="btn btn-primary">Kembali</a>
                 </div>
             </form><!-- End floating Labels Form -->
 
