@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Aspirasi;
 
 class User extends Authenticatable
 {
@@ -25,11 +26,11 @@ class User extends Authenticatable
     protected $guarded = ['id'];
     public function pegawai()
     {
-        return $this->hasMany('App\Models\Aduan', 'id_pegawai');
+        return $this->hasMany(Aspirasi::class, 'id_user');
     }
-    public function mahasiswa()
+    public function masyarakat()
     {
-        return $this->hasMany('App\Models\Aduan', 'id_mahasiswa');
+        return $this->hasMany(Aspirasi::class, 'id_user');
     }
 
     /**

@@ -9,8 +9,8 @@
             <li class="breadcrumb-item">Home</li>
             @if(Auth::user()->role == 1)
                 <li class="breadcrumb-item">Admin</li>
-            @else
-                <li class="breadcrumb-item">Masyarakat</li>
+            @elseif(Auth::user()->role == 2)
+                <li class="breadcrumb-item">Pegawai</li>
             @endif
             <li class="breadcrumb-item active">{{ $title }}</li>
         </ol>
@@ -40,22 +40,29 @@
                 <div class="col-12 mt-5">
                     <div class="form-floating">
                         <input class="form-control bg-light" type="text" value="{{ $aduan->user->nama }}" readonly>
-                        <label>Aspirasi Dari</label>
+                        <label>Aduan Dari</label>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-floating">
-                        <textarea class="form-control bg-light" style="height: 300px;" readonly>{{ $aduan->isi_aspirasi }}</textarea>
-                        <label for="floatingTextarea">Isi Aspirasi</label>
+                        <textarea class="form-control bg-light" style="height: 100px;" readonly>{{ $aduan->isi_aspirasi }}</textarea>
+                        <label for="floatingTextarea">Isi Aduan</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control bg-light" style="height: 100px;" readonly>{{ $aduan->user->alamat }}</textarea>
+                        <label for="floatingTextarea">Tempat Aspirasi</label>
                     </div>
                 </div>
 
                 <div class="col-12">
-                    <img src="https://s.kaskus.id/images/2012/12/19/4622021_20121219012816.jpg" alt="GambarAspirasi" height="500" style="width: 100%;object-fit: cover; background-attachment: fixed;">
+                    <img src="{{ asset('aduan/' . $aduan->gambar) }}" style="width: 100%; object-fit: cover;" height="400" alt="">
                 </div>
 
+
                 <div class="text-center">
-                    <a href="{{ url("/admin") }}" class="btn btn-primary">Kembali</a>
+                    <a href="/admin" class="btn btn-primary">Kembali</a>
                 </div>
             </form><!-- End floating Labels Form -->
 

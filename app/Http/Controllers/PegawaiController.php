@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Pegawai;
-use App\Models\Aduan;
 use App\Models\Aspirasi;
 
 class PegawaiController extends Controller
@@ -29,8 +28,9 @@ class PegawaiController extends Controller
 
     public function kelolatanggapan($id)
     {
-        $aduan  = Aspirasi::where('id', $id)->first();
+        $aduan  = Aspirasi::where('id', $id)->with('user')->first();
         $aduan->status = 1;
+        // dd($aduan);
         $aduan->save();
         return view('dashboard.pegawai.kelolatanggapan', [
             'title' => 'Kelola Aspirasi',

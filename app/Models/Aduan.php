@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Aduan extends Model
 {
-    use HasFactory;
+	use HasFactory;
 
-    protected $guarded = ['id'];
-    public function mahasiswa() 
+	protected $guarded = ['id'];
+	public function masyarakat()
 	{
-		return $this->belongsTo('App\Models\User', 'id_mahasiswa');
+		return $this->belongsTo('App\Models\User', 'id_masyarakat');
 	}
-    public function pegawai() 
+	public function pegawai()
 	{
 		return $this->belongsTo('App\Models\User', 'id_pegawai');
 	}

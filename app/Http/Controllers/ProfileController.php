@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Pegawai;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Mahasiswa;
 
 class ProfileController extends Controller
 {

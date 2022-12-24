@@ -129,9 +129,6 @@
                                         @else
                                         <img src="{{ url('/profpic/'.Auth::user()->image) }}" alt="Profile">
                                         @endif
-                                        <div class="pt-2">
-                                            <input name="image" id="image" type="file" class="form-control">
-                                        </div>
                                     </div>
                                 </div>
 
