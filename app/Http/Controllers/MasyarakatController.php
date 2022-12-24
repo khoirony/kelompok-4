@@ -14,7 +14,7 @@ class MasyarakatController extends Controller
 
         $aduan = Aspirasi::where('id_user', Auth::user()->id)->orderBy('created_at', 'desc')->get();
         return view('dashboard.masyarakat.index', [
-            'title' => 'History Aduan',
+            'title' => 'List Aspirasi',
             'aduan' => $aduan
         ]);
         // $aduanmasuk  = Aspirasi::where('status', 0)->where('id_user', Auth::user()->id)->count();

@@ -34,7 +34,8 @@
           <tr>
             <th scope="col">Waktu</th>
             <th scope="col">Judul Aspirasi</th>            
-            <th scope="col">status</th>
+            <th scope="col">Status</th>            
+            <th scope="col">Aksi</th>
           </tr>
         </thead>
         <tbody>
