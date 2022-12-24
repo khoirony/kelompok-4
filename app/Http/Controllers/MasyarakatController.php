@@ -33,7 +33,7 @@ class MasyarakatController extends Controller
     public function tambahaduan()
     {
         return view('dashboard.masyarakat.tambahaduan', [
-            'title' => 'Tambah Pengaduan'
+            'title' => 'Tambah Aspirasi'
         ]);
     }
 

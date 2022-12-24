@@ -58,7 +58,7 @@
         <li class="nav-item">
           <a class="nav-link collapsed {{ $currentRoute == "masyarakat.create" ? "active" : "" }}" href="/tambahaduan">
             <i class="bi bi-journal-plus"></i>
-            <span>Tambah Pengaduan</span>
+            <span>Tambah Aspirasi</span>
           </a>
         </li>
 

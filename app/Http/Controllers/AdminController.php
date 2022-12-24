@@ -37,12 +37,13 @@ class AdminController extends Controller
 
         $validation = $request->validate([
             "nama" => "required|max:255",
-            "email" => "required|email",
+            "email" => "required|email|unique:users,email",
             "password" => "required|min:6",
             "password_confirmation" => "required|same:password"
         ], [
             'nama.required' => 'Nama pegawai wajib diisi.',
             'email.required' => 'Email wajib di isi.',
+            'email.unique' => 'Email tidak bisa di gunakan',
             'password.required' => 'Password wajib di isi.',
             "password.min" => "Password minimal 6 karakter.",
             'password_confirmation.required' => 'Password Confirmation wajib di isi.',
