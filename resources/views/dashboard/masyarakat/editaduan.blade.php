@@ -36,6 +36,7 @@
             @endif
             
             <!-- Floating Labels Form -->
+            @dd($aduan)
             <form class="row g-3" action="/editaduan" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" id="id" value="{{ $aduan->id }}">

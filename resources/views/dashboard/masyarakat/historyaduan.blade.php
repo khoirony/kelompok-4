@@ -7,7 +7,7 @@
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item">Home</li>
-      <li class="breadcrumb-item">User</li>
+      <li class="breadcrumb-item">Masyarakat</li>
       <li class="breadcrumb-item active">{{ $title }}</li>
     </ol>
   </nav>
@@ -33,9 +33,9 @@
         <thead>
           <tr>
             <th scope="col">Waktu</th>
-            <th scope="col">Aspirasi</th>
-            <th scope="col">Tanggapan</th>
-            <th scope="col">Nama Pegawai</th>
+            <th scope="col">Nama Pengirim</th>
+            {{-- <th scope="col">Tanggapan</th> --}}
+            {{-- <th scope="col">Nama Pegawai</th> --}}
             <th scope="col">Status</th>
             <th scope="col">Aksi</th>
           </tr>
@@ -47,9 +47,9 @@
             <td>{{ $a->isi_aspirasi }}</td>
             @if ($a->status != 0)    
               <td>{{ $a->tanggapan }}</td>
-              <td>{{ $a->pegawai->nama }}</td>
+              {{-- <td>{{ $a->pegawai->nama }}</td> --}}
             @else
-              <td>-Belum Ada-</td>
+              {{-- <td>-Belum Ada-</td> --}}
               <td>-Belum Ada-</td>
             @endif
             <td>
