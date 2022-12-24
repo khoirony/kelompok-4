@@ -72,7 +72,8 @@ class MasyarakatController extends Controller
 
     public function editaduan($id)
     {
-        $aduan  = Aspirasi::where('id_user', $id)->first();
+        // $aduan  = Aspirasi::where('id_user', $id)->first();
+        $aduan = Aspirasi::find($id);
         // dd($aduan);
         return view('dashboard.masyarakat.editaduan', [
             'title' => 'Kelola Aduan',

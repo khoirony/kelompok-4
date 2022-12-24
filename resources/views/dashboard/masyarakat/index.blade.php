@@ -55,23 +55,17 @@
             <td>
               @switch($a->status)
                   @case(0)
-                    <span class="badge bg-primary">{{ 'Menunggu' }}</span>
+                    <span class="badge bg-danger">{{ 'Belum Dibaca' }}</span>
                     @break
                   @case(1)
-                  <span class="badge bg-warning">{{ 'Sedang Diproses' }}</span>
-                    @break
-                  @case(2)
-                    <span class="badge bg-success">{{ 'Selesai' }}</span>
-                    @break
-                  @case(9)
-                    <span class="badge bg-danger">{{ 'Ditolak' }}</span>
+                  <span class="badge bg-primary">{{ 'Sudah Dibaca' }}</span>
                     @break
               @endswitch
             </td>
             <td>
               <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#id{{ $a->id }}"><i class="bi bi-image"></i></button>
               @if($a->status == 1)
-                <button class="btn btn-sm btn-secondary"><i class="bi bi-pencil-square"></i></button> 
+                <button class="btn btn-sm btn-secondary" ><i class="bi bi-pencil-square"></i></button> 
                 <button class="btn btn-sm btn-secondary"><i class="bi bi-trash"></i></button>
               @else
                 <a href="/editaduan/{{ $a->id }}" class="btn btn-sm btn-primary"><i class="bi bi-pencil-square"></i></a> 
