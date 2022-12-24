@@ -33,7 +33,7 @@
                             <div class="col-12">
                                 <label for="email" class="form-label">Email Address</label>
                                 <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                                id="email" placeholder="name@example.com" autofocus required value="{{ old('email') }}">
+                                id="email" placeholder="Email.. eg:name@example.com" autofocus value="{{ old('email') }}">
                                     
                                 @error('email')
                                 <div id="validationServer03Feedback" class="invalid-feedback">
@@ -44,9 +44,14 @@
 
                             <div class="col-12">
                                 <label for="yourPassword" class="form-label">Password</label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Password"
-                                    required>
-                                <div class="invalid-feedback">Please enter your password!</div>
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" placeholder="Password"
+                                >
+
+                                @error('password')
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
 
                             <div class="col-12">

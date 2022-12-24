@@ -35,7 +35,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-        &copy; Copyright <strong><span>Pengaduan Mahasiswa</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Aspirasi Masyarakat</span></strong>. All Rights Reserved
         </div>
     </footer><!-- End Footer -->
 

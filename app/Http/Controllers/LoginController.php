@@ -13,7 +13,7 @@ class LoginController extends Controller
     public function index()
     {
         return view('login.index', [
-            'title' => 'Login Pengaduan Mahasiswa'
+            'title' => 'Login Aspirasi Masyarakat'
         ]);
     }
 
@@ -22,6 +22,9 @@ class LoginController extends Controller
         $credentials = $request->validate([
             'email' => 'required',
             'password' => 'required'
+        ], [
+            "email.required" => "Email wajib di isi",
+            "password.required" => "Password wajib di isi"
         ]);
 
         $user = User::where('email', 'like', "%" . $request->email . "%")->first();

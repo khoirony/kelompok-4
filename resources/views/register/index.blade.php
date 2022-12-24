@@ -13,12 +13,12 @@
                             <p class="text-center small">Enter your personal details to create account</p>
                         </div>
 
-                        <form action="/register" method="post" class="row g-3 needs-validation">
+                        <form action="/register" method="post" class="row g-3 needs-validation" enctype="multipart/form-data">
                             @csrf
                             <div class="col-12">
-                                <label for="name" class="form-label">Full Name</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                    id="name" placeholder="Name" required value="{{ old('name') }}">
+                                <label for="nama" class="form-label">Full Name</label>
+                                <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"
+                                    id="nama" placeholder="Full Nama" value="{{ old('nama') }}">
 
                                 @error('name')
                                 <div id="validationServer03Feedback" class="invalid-feedback">
@@ -29,7 +29,7 @@
 
                             <div class="col-12">
                                 <label for="email" class="form-label">Email Address</label>
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="name@example.com" required value="{{ old('email') }}">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="name@example.com" value="{{ old('email') }}">
                                 @error('email')
                                 <div id="validationServer03Feedback" class="invalid-feedback">
                                     {{ $message }}
@@ -40,20 +40,78 @@
                             <div class="col-12">
                                 <label for="yourPassword" class="form-label">Password</label>
                                 <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password"
-                                    placeholder="Password" required>
+                                    placeholder="Password">
                                 @error('password')
                                 <div id="validationServer03Feedback" class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
+
                             <div class="col-12">
-                                <label for="email" class="form-label">Pilih Role</label>
-                                <select class="form-select" name="role" id="role" aria-label="Default select example">
-                                    <option value="1">Admin</option>
-                                    <option value="2">Pegawai</option>
-                                    <option value="3">Mahasiswa</option>
-                                </select>
+                                <label for="passwordConfirmation" class="form-label">Password Confirmation</label>
+                                <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation"
+                                    placeholder="Password Confirmation...">
+                                @error('password_confirmation')
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="col-12">
+                                <label for="nik" class="form-label">Nik</label>
+                                <input type="nik" class="form-control @error('nik') is-invalid @enderror" name="nik" id="password"
+                                    placeholder="Nik...">
+                                @error('nik')
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="col-12">
+                                <label for="tentang" class="form-label">Tentang</label>
+                                <textarea  class="form-control @error('tentang') is-invalid @enderror" name="tentang" id="tentang" cols="30" rows="10" placeholder="Tentang..."></textarea>
+                                {{-- <input type="text" class="form-control @error('tentang') is-invalid @enderror" name="tentang" id="tentang"
+                                    placeholder="Password"> --}}
+                                @error('tentang')
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="col-12">
+                                <label for="alamat" class="form-label">Alamat</label>
+                                <input type="alamat" class="form-control @error('alamat') is-invalid @enderror" name="alamat" id="password"
+                                    placeholder="Alamat...">
+                                @error('alamat')
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="col-12">
+                                <label for="no_telp" class="form-label">No Telepon</label>
+                                <input type="no_telp" class="form-control @error('no_telp') is-invalid @enderror" name="no_telp" id="password"
+                                    placeholder="No Telp...">
+                                @error('no_telp')
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="col-12">
+                                <label for="yourPassword" class="form-label">Gambar</label>
+                                <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" id="gambar">
+                                @error('gambar')
+                                <div id="validationServer03Feedback" class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
 
                             <div class="col-12">
