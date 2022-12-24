@@ -30,6 +30,8 @@ class PegawaiController extends Controller
     public function kelolatanggapan($id)
     {
         $aduan  = Aspirasi::where('id', $id)->first();
+        $aduan->status = 1;
+        $aduan->save();
         return view('dashboard.pegawai.kelolatanggapan', [
             'title' => 'Kelola Aspirasi',
             'aduan' => $aduan,

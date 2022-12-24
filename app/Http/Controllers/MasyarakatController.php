@@ -41,7 +41,7 @@ class MasyarakatController extends Controller
     {
         $request->validate([
             'isi_aspirasi' => 'required',
-            'gambar' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:5048',
+            'gambar' => 'nullable|image|file|max:1024',
         ]);
         // dd($request);
         if ($request->hasFile("gambar")) {
