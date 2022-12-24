@@ -33,11 +33,8 @@
         <thead>
           <tr>
             <th scope="col">Waktu</th>
-            <th scope="col">Nama Pengirim</th>
-            {{-- <th scope="col">Tanggapan</th> --}}
-            {{-- <th scope="col">Nama Pegawai</th> --}}
-            <th scope="col">Status</th>
-            <th scope="col">Aksi</th>
+            <th scope="col">Judul Aspirasi</th>            
+            <th scope="col">status</th>
           </tr>
         </thead>
         <tbody>
@@ -45,13 +42,11 @@
           <tr>
             <th scope="row">{{ $a->created_at }}</th>
             <td>{{ $a->isi_aspirasi }}</td>
-            @if ($a->status != 0)    
+            {{-- @if ($a->status != 0)    
               <td>{{ $a->tanggapan }}</td>
-              {{-- <td>{{ $a->pegawai->nama }}</td> --}}
             @else
-              {{-- <td>-Belum Ada-</td> --}}
               <td>-Belum Ada-</td>
-            @endif
+            @endif --}}
             <td>
               @switch($a->status)
                   @case(0)
