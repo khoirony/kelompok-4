@@ -7,7 +7,7 @@
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">Home</li>
-            <li class="breadcrumb-item">Mahasiswa</li>
+            <li class="breadcrumb-item">Masyarakat</li>
             <li class="breadcrumb-item active">{{ $title }}</li>
         </ol>
     </nav>
@@ -36,7 +36,7 @@
             @endif
             
             <!-- Floating Labels Form -->
-            @dd($aduan)
+            {{-- @dd($aduan) --}}
             <form class="row g-3" action="/editaduan" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" id="id" value="{{ $aduan->id }}">
