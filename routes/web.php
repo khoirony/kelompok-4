@@ -64,7 +64,7 @@ Route::get('/tambahaduan', [MasyarakatController::class, 'tambahaduan'])
     ->name("masyarakat.create")
     ->middleware('auth');
 Route::post('/tambahaduan', [MasyarakatController::class, 'storeaduan'])->middleware('auth');
-Route::get('/historyaduan', [MasyarakatController::class, 'historyaduan'])->middleware('auth');
+// Route::get('/historyaduan', [MasyarakatController::class, 'historyaduan'])->middleware('auth');
 Route::get('/editaduan/{id}', [MasyarakatController::class, 'editaduan'])->middleware('auth');
 Route::post('/editaduan', [MasyarakatController::class, 'storeedit'])->middleware('auth');
 Route::get('/hapusaduan/{id}', [MasyarakatController::class, 'hapusaduan'])->middleware('auth');

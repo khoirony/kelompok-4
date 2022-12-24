@@ -7,7 +7,7 @@
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">Home</li>
-            <li class="breadcrumb-item">Mahasiswa</li>
+            <li class="breadcrumb-item">Masyarakat</li>
             <li class="breadcrumb-item active">{{ $title }}</li>
         </ol>
     </nav>

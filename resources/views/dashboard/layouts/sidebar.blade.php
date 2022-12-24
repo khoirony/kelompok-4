@@ -61,12 +61,13 @@
             <span>Tambah Pengaduan</span>
           </a>
         </li>
-        <li class="nav-item">
+
+        {{-- <li class="nav-item">
           <a class="nav-link collapsed" href="/historyaduan">
             <i class="bi bi-journal-bookmark"></i>
             <span>History Pengaduan</span>
           </a>
-        </li>
+        </li> --}}
       @endif
     </ul>
 

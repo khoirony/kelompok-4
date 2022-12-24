@@ -11,17 +11,23 @@ class MasyarakatController extends Controller
 {
     public function index()
     {
-        $aduanmasuk  = Aspirasi::where('status', 0)->where('id_user', Auth::user()->id)->count();
-        $aduandiproses  = Aspirasi::where('status', 1)->where('id_user', Auth::user()->id)->count();
-        $aduanselesai  = Aspirasi::where('status', 2)->where('id_user', Auth::user()->id)->count();
-        $aduanditolak  = Aspirasi::where('status', 9)->where('id_user', Auth::user()->id)->count();
+
+        $aduan = Aspirasi::where('id_user', Auth::user()->id)->orderBy('created_at', 'desc')->get();
         return view('dashboard.masyarakat.index', [
-            'title' => 'Dashboard',
-            'aduanmasuk' => $aduanmasuk,
-            'aduandiproses' => $aduandiproses,
-            'aduanselesai' => $aduanselesai,
-            'aduanditolak' => $aduanditolak
+            'title' => 'History Aduan',
+            'aduan' => $aduan
         ]);
+        // $aduanmasuk  = Aspirasi::where('status', 0)->where('id_user', Auth::user()->id)->count();
+        // $aduandiproses  = Aspirasi::where('status', 1)->where('id_user', Auth::user()->id)->count();
+        // $aduanselesai  = Aspirasi::where('status', 2)->where('id_user', Auth::user()->id)->count();
+        // $aduanditolak  = Aspirasi::where('status', 9)->where('id_user', Auth::user()->id)->count();
+        // return view('dashboard.masyarakat.index', [
+        //     'title' => 'Dashboard',
+        //     'aduanmasuk' => $aduanmasuk,
+        //     'aduandiproses' => $aduandiproses,
+        //     'aduanselesai' => $aduanselesai,
+        //     'aduanditolak' => $aduanditolak
+        // ]);
     }
 
     public function tambahaduan()
@@ -55,14 +61,14 @@ class MasyarakatController extends Controller
         return redirect('/tambahaduan')->with('success', 'Aduan Sukses Terkirim');
     }
 
-    public function historyaduan()
-    {
-        $aduan = Aspirasi::where('id_user', Auth::user()->id)->orderBy('created_at', 'desc')->get();
-        return view('dashboard.masyarakat.historyaduan', [
-            'title' => 'History Aduan',
-            'aduan' => $aduan
-        ]);
-    }
+    // public function historyaduan()
+    // {
+    //     $aduan = Aspirasi::where('id_user', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+    //     return view('dashboard.masyarakat.historyaduan', [
+    //         'title' => 'History Aduan',
+    //         'aduan' => $aduan
+    //     ]);
+    // }
 
     public function editaduan($id)
     {
@@ -94,12 +100,12 @@ class MasyarakatController extends Controller
         $aduan->status = 0;
         $aduan->update();
 
-        return redirect('/historyaduan')->with('success', 'Aduan Sukses Diedit');
+        return redirect('/masyarakat')->with('success', 'Aduan Sukses Diedit');
     }
 
     public function hapusaduan($id)
     {
         $aduan = Aspirasi::where('id', $id)->delete();
-        return redirect('/historyaduan')->with('success', 'Aduan Berhasil Dihapus');
+        return redirect('/masyarakat')->with('success', 'Aduan Berhasil Dihapus');
     }
 }
