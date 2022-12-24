@@ -7,7 +7,7 @@
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item">Home</li>
-      <li class="breadcrumb-item">Mahasiswa</li>
+      <li class="breadcrumb-item">User</li>
       <li class="breadcrumb-item active">{{ $title }}</li>
     </ol>
   </nav>
@@ -33,7 +33,7 @@
         <thead>
           <tr>
             <th scope="col">Waktu</th>
-            <th scope="col">Aduan</th>
+            <th scope="col">Aspirasi</th>
             <th scope="col">Tanggapan</th>
             <th scope="col">Nama Pegawai</th>
             <th scope="col">Status</th>
