@@ -1,5 +1,15 @@
 /* RESET STYLE */
 
+a,
+a:hover {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
 input,
 textarea {
     padding: 15px !important;
@@ -32,6 +42,34 @@ input[type="radio"] {
     border-radius: 100% !important;
 }
 
+.btn {
+    color: rgb(75, 74, 74) !important;
+    border-radius: 6px !important;
+}
+
+.btn.btn-primary {
+    background-color: #009688 !important;
+    border-color: #009688;
+    color: #fff !important;
+}
+
+.btn.btn-warning {
+    background-color: yellow !important;
+    color: #fff;
+}
+
+.btn.btn-danger {
+    background-color: rgb(242, 43, 43) !important;
+}
+
+.btn.btn-success {
+    background-color: #4caf50 !important;
+}
+
+.btn:is(:hover, :focus-visible) {
+    color: rgba(240, 240, 240, .8) !important;
+}
+
 /* REUSED STYLE */
 
 .section {
@@ -40,6 +78,18 @@ input[type="radio"] {
 
 .container {
     padding-inline: 60px;
+}
+
+.bg-gray {
+    background-color: rgb(240, 240, 240) !important;
+}
+
+ul.list-group {
+    padding: 0 !important;
+}
+
+.list-group-item:is(:hover, :focus-visible) {
+    background-color: rgb(240, 240, 240) !important;
 }
 
 /* HEADER */

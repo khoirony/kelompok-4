@@ -37,6 +37,10 @@ Route::get("/login", function () {
 
 // Routes Crud Sample
 
+Route::get("/crud/dashboard", function () {
+    return view('crud.dashboard');
+});
+
 Route::get("/crud", function () { // contoh crud sample untuk halaman index
     return view("crud.index");
 })->name("crud.index");
