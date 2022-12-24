@@ -6,12 +6,12 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 
-class UserRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     public function rules()
     {
         return [
-            'email' => 'email|required|unique:users',
+            'email' => 'email|required|',
             'password' => 'required|min:6',
             'role' => 'required',
         ];
@@ -31,9 +31,8 @@ class UserRequest extends FormRequest
         return [
             'email.required' => 'Mohon isi Email terlebih dahulu',
             'email.email' => 'Email Harus Berupa Email',
-            'email.unique.users' => 'Email sudah digunakan',
             'password.required' => 'Mohon isi Password terlebih dahulu',
-            'password.min:6' => 'Password minimal 6 karakter',
+            'password.min' => 'Password minimal 6 karakter',
             'role.required' => 'Role Kosong',
         ];
     }

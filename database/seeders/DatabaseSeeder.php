@@ -28,10 +28,20 @@ class DatabaseSeeder extends Seeder
             'nik' => '332364647',
             'nama' => 'Eko Prayoga',
             'email' => 'eko@gmail.com',
-            'password' => bcrypt('12345'),
+            'password' => bcrypt('123456'),
             'tentang' => 'Saya Sebagai Masyarakat Disini',
             'alamat' => 'Lamongan, jawa Timur',
             'no_telp' => '08385893585829',
+            'role' => 2 //user = masyarakat
+        ]);
+        User::create([
+            'nik' => '3923898492',
+            'nama' => 'Fulan Fulani',
+            'email' => 'fulan@gmail.com',
+            'password' => bcrypt('123456'),
+            'tentang' => 'Saya Sebagai Masyarakat Disini',
+            'alamat' => 'Tuban, jawa Timur',
+            'no_telp' => '0838585829',
             'role' => 2 //user = masyarakat
         ]);
 
@@ -43,7 +53,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Aspirasi::create([
-            'id_user' => '2',
+            'id_user' => '3',
             'isi_aspirasi' => 'Turunkan Harga Chip',
             'status' => '1', //sudah dibaca
             'gambar' => 'gambar2.jpg',

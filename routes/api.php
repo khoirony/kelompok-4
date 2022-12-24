@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\AspirasiController;
+use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\AspirasiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,12 +25,12 @@ Route::get('/user/list', [UserController::class, 'index']);
 Route::get('/user/{id}', [UserController::class, 'show']);
 Route::post('/user/', [UserController::class, 'store']);
 Route::post('/user/{id}/update', [UserController::class, 'update']);
-Route::get('/user/{id}/delete', [UserController::class, 'destroy']);
+Route::post('/user/{id}/delete', [UserController::class, 'destroy']);
 
 
 // CRUD Aspirasi
-Route::get('/aspirasi/list', [AspirasiController::class, 'listaspirasi']);
-Route::get('/aspirasi/{id}', [AspirasiController::class, 'detailaspirasi']);
-Route::post('/aspirasi/', [AspirasiController::class, 'storeaspirasi']);
-Route::post('/aspirasi/{id}/update', [AspirasiController::class, 'updateaspirasi']);
-Route::get('/aspirasi/{id}/delete', [AspirasiController::class, 'hapusaspirasi']);
+Route::get('/aspirasi/list', [AspirasiController::class, 'index']);
+Route::get('/aspirasi/{id}', [AspirasiController::class, 'show']);
+Route::post('/aspirasi/', [AspirasiController::class, 'store']);
+Route::post('/aspirasi/{id}/update', [AspirasiController::class, 'update']);
+Route::post('/aspirasi/{id}/delete', [AspirasiController::class, 'destroy']);

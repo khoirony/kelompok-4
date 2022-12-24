@@ -1,39 +1,40 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Aspirasi;
-use App\Http\Requests\AspirasiRequest;
+use App\Models\User;
+use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 
-class AspirasiController extends Controller
+class UserController extends Controller
 {
     public function index(){
-        // get all data table aspirasi, kategori and author using join
-        $aspirasi = Aspirasi::select(
+        // get all data table user, kategori and author using join
+        $user = User::select(
             "*",
         )
-        ->join("users", "users.id", "=", "aspirasis.id_user")
         ->get();
         
         // send response success json
         return response()->json([
             "status" => true,
             "message" => "data ditemukan",
-            "data" => $aspirasi,
+            "data" => $user,
         ]);
     }
 
     public function show($id){
         // get book by id equal param id
-        $aspirasi = Aspirasi::query()->where("id", $id)->first();
+        $user = User::query()->where("id", $id)->first();
 
         // check if book exist
-        if($aspirasi == null){
+        if($user == null){
             // send respose error json
             return response()->json([
                 "status" => false,
-                "message" => "aspirasi tidak ditemukan",
+                "message" => "user tidak ditemukan",
                 "data" => null
             ]);
         }
@@ -41,49 +42,49 @@ class AspirasiController extends Controller
         // send response success json
         return response()->json([
             "status" => true,
-            "message" => "aspirasi ditemukan",
-            "data" => $aspirasi
+            "message" => "user ditemukan",
+            "data" => $user
         ]);
     }
 
-    public function store(AspirasiRequest $request){
+    public function store(CreateUserRequest $request){
         // initiate request into payload variable
         $payload = $request->all();
 
-        if($request->file("gambar") != null){
+        if($request->file("image") != null){
             // get input file
-            $file = $request->file("gambar");
+            $file = $request->file("image");
             // hash file name
             $filename = $file->hashName();
             // move file to folder image
             $file->move("image", $filename);
             // initiate folder name + filename to path
             $path = "/image/" . $filename;
-            // insert path into array payload index 'gambar'
-            $payload['gambar'] = $path;
+            // insert path into array payload index 'image'
+            $payload['image'] = $path;
         }
-
+        $payload['role'] = $request->input('role');
 
         // insert data payload into database
-        $aspirasi = Aspirasi::create($payload);
+        $user = User::create($payload);
 
         // send respose success json
         return response()->json([
             "status" => true,
             "message" => "",
-            "data" => $aspirasi
+            "data" => $user
         ]);
     }
 
-    public function update(AspirasiRequest $request, $id){
+    public function update(UpdateUserRequest $request, $id){
         // find book by id equal param id
-        $aspirasi = Aspirasi::find($id);
+        $user = User::find($id);
         // check if book exist
-        if($aspirasi == null){
+        if($user == null){
             // send respose error json
             return response()->json([
                 "status" => false,
-                "message" => "aspirasi tidak ditemukan",
+                "message" => "user tidak ditemukan",
                 "data" => null
             ]);
         }
@@ -100,49 +101,49 @@ class AspirasiController extends Controller
             ]);
         }
 
-        if($request->file("gambar") != null){
+        if($request->file("image") != null){
             // get input file
-            $file = $request->file("gambar");
+            $file = $request->file("image");
             // hash file name
             $filename = $file->hashName();
             // move file to folder image
             $file->move("image", $filename);
             // initiate folder name + filename to path
             $path = "/image/" . $filename;
-            // insert path into array payload index 'gambar'
-            $payload['gambar'] = $path;
+            // insert path into array payload index 'image'
+            $payload['image'] = $path;
         }
 
 
-        // update db aspirasi where id equal param
-        $aspirasi = Aspirasi::find($id);
-        $aspirasi->fill($payload);
-        $aspirasi->save();
+        // update db user where id equal param
+        $user = User::find($id);
+        $user->fill($payload);
+        $user->save();
 
         // send respose success json
         return response()->json([
             "status" => true,
             "message" => "data berhasil di update",
-            "data" => $aspirasi
+            "data" => $user
         ]);
     }
 
     public function destroy($id){
         // find book by id equal param id
-        $aspirasi = Aspirasi::query()->where("id", $id)->first();
+        $user = User::query()->where("id", $id)->first();
 
         // check if book exists
-        if($aspirasi == null){
+        if($user == null){
             // send respose error json
             return response()->json([
                 "status" => false,
-                "message" => "aspirasi tidak ditemukan",
+                "message" => "user tidak ditemukan",
                 "data" => null
             ]);
         }
 
         // delete data
-        $aspirasi->delete();
+        $user->delete();
 
         // send respose success json
         return response()->json([
@@ -151,3 +152,4 @@ class AspirasiController extends Controller
         ]);
     }
 }
+
